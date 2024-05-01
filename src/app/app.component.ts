@@ -10,15 +10,28 @@ export class AppComponent implements OnInit {
   title = 'angular-experiments';
 
   myObservable = new Observable((observer) => {
-    var a = 10;
-    var b = 5;
-    var c = a + b;
-    console.log(c);
+    setTimeout(() => {
+      observer.next(1);
+    }, 1000);
+    setTimeout(() => {
+      observer.next(2);
+    }, 2000);
+    setTimeout(() => {
+      observer.next(3);
+    }, 3000);
+    setTimeout(() => {
+      observer.next(4);
+    }, 4000);
+    setTimeout(() => {
+      observer.next(5);
+    }, 5000);
   });
 
-  ngOnInit() {
-    this.myObservable.subscribe((c) => {
-      console.log(c);
+  getAsyncData() {
+    this.myObservable.subscribe((val: any) => {
+      this.data.push(val);
     });
   }
 }
+
+ngOnInit();
