@@ -32,6 +32,5 @@ export class AppComponent implements OnInit {
       this.data.push(val);
     });
   }
+  ngOnInit();
 }
-
-ngOnInit();
